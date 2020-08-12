@@ -11,8 +11,9 @@
 		60A43DAA24E47333009A0E39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A43DA924E47333009A0E39 /* SceneDelegate.swift */; };
 		60A43DAC24E47333009A0E39 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A43DAB24E47333009A0E39 /* ContentView.swift */; };
 		60A43DAE24E47337009A0E39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60A43DAD24E47337009A0E39 /* Assets.xcassets */; };
-		60A43DB124E47337009A0E39 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60A43DB024E47337009A0E39 /* Preview Assets.xcassets */; };
 		60A43DB424E47337009A0E39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A43DB224E47337009A0E39 /* LaunchScreen.storyboard */; };
+		60A43DBC24E475F6009A0E39 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A43DBB24E475F6009A0E39 /* CustomTabBarView.swift */; };
+		60A43DC724E4809F009A0E39 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A43DC624E4809F009A0E39 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,9 +22,10 @@
 		60A43DA924E47333009A0E39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		60A43DAB24E47333009A0E39 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		60A43DAD24E47337009A0E39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		60A43DB024E47337009A0E39 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		60A43DB324E47337009A0E39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60A43DB524E47337009A0E39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60A43DBB24E475F6009A0E39 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
+		60A43DC624E4809F009A0E39 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +43,6 @@
 			isa = PBXGroup;
 			children = (
 				60A43DA624E47333009A0E39 /* recepiesExampleApp */,
-				60A43DA524E47333009A0E39 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,28 +52,95 @@
 				60A43DA424E47333009A0E39 /* recepiesExampleApp.app */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		60A43DA624E47333009A0E39 /* recepiesExampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				60A43DBD24E47B1D009A0E39 /* Screens */,
 				60A43DA724E47333009A0E39 /* AppDelegate.swift */,
+				60A43DBB24E475F6009A0E39 /* CustomTabBarView.swift */,
 				60A43DA924E47333009A0E39 /* SceneDelegate.swift */,
 				60A43DAB24E47333009A0E39 /* ContentView.swift */,
 				60A43DAD24E47337009A0E39 /* Assets.xcassets */,
 				60A43DB224E47337009A0E39 /* LaunchScreen.storyboard */,
 				60A43DB524E47337009A0E39 /* Info.plist */,
-				60A43DAF24E47337009A0E39 /* Preview Content */,
+				60A43DA524E47333009A0E39 /* Products */,
 			);
 			path = recepiesExampleApp;
 			sourceTree = "<group>";
 		};
-		60A43DAF24E47337009A0E39 /* Preview Content */ = {
+		60A43DBD24E47B1D009A0E39 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				60A43DB024E47337009A0E39 /* Preview Assets.xcassets */,
+				60A43DC224E47F9B009A0E39 /* Profile */,
+				60A43DBE24E47BF6009A0E39 /* Discover */,
 			);
-			path = "Preview Content";
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		60A43DBE24E47BF6009A0E39 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				60A43DBF24E47C26009A0E39 /* View */,
+				60A43DC024E47C2D009A0E39 /* ViewModel */,
+				60A43DC124E47C3B009A0E39 /* Model */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		60A43DBF24E47C26009A0E39 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		60A43DC024E47C2D009A0E39 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		60A43DC124E47C3B009A0E39 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		60A43DC224E47F9B009A0E39 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				60A43DC524E4806C009A0E39 /* View */,
+				60A43DC424E47FAE009A0E39 /* ViewModel */,
+				60A43DC324E47FA3009A0E39 /* Model */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		60A43DC324E47FA3009A0E39 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		60A43DC424E47FAE009A0E39 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		60A43DC524E4806C009A0E39 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				60A43DC624E4809F009A0E39 /* ProfileView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,7 +202,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				60A43DB424E47337009A0E39 /* LaunchScreen.storyboard in Resources */,
-				60A43DB124E47337009A0E39 /* Preview Assets.xcassets in Resources */,
 				60A43DAE24E47337009A0E39 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,7 +215,9 @@
 			files = (
 				60A43DA824E47333009A0E39 /* AppDelegate.swift in Sources */,
 				60A43DAA24E47333009A0E39 /* SceneDelegate.swift in Sources */,
+				60A43DC724E4809F009A0E39 /* ProfileView.swift in Sources */,
 				60A43DAC24E47333009A0E39 /* ContentView.swift in Sources */,
+				60A43DBC24E475F6009A0E39 /* CustomTabBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
