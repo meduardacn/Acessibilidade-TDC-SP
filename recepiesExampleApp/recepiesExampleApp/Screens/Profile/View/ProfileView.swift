@@ -11,13 +11,25 @@ import SwiftUI
 struct ProfileView: View {
     @State var screenSize: CGSize = CGSize(width: 0, height: 0)
     
+    // textFields variables
+    @State var email: String = ""
+    @State var password: String = ""
+    @State var onCommitEmail: () -> Void = {}
+    @State var onCommitPassword: () -> Void = {}
+    @State var securePasswordActive = false
+    @State var wrongAnswer = true
+    @State var remember = false
+
+   
+    
+    
     
     var body: some View {
         GeometryReader { geometry in
             VStack{
                 self.header
                 self.informations
-                self.header
+                self.login
             }.onAppear {
                 self.screenSize = geometry.size
             }
@@ -45,21 +57,150 @@ struct ProfileView: View {
     var informations: some View {
         VStack(alignment: .center){
             Image("happyFace")
-            Text(
-                """
-                Olá! Faça login para ter acesso ao seu
-                perfil e as suas receitas favoritas!
-                """)
-                
+            Text("Olá! Faça login para ter acesso ao seu perfil e as suas receitas favoritas!")
                 .multilineTextAlignment(.center)
-                .lineLimit(nil)
-                .font(.system(size: 20))
-                .frame(width: self.screenSize.width*0.9)
+                .frame(width: self.screenSize.width*0.9,height: self.screenSize.height*0.06)
+//            Divider()
         }.padding(.top,self.screenSize.height*0.05)
     }
-    var textFiels: some View{
-        Text("")
+    
+    var login: some View {
+        VStack(alignment: .leading){
+            Text("E-mail")
+                .bold()
+            self.emailTextField
+            Text("Senha")
+                .bold()
+            self.passwordTextField
+            if wrongAnswer{
+                self.passwordSupportHStack
+            }else{
+                self.rememberMe
+            }
+            self.loginButton
+            self.createAccountButton
+            Spacer()
+        }
+        .frame(width: self.screenSize.width*0.9)
+
     }
+    
+    var emailTextField: some View {
+        ZStack(alignment: .leading){
+            Rectangle()
+                .fill(Color(.white))
+                .cornerRadius(10)
+                .frame(height: self.screenSize.height*0.05)
+                .shadow(radius: 5)
+            TextField("", text: $email, onCommit: onCommitEmail)
+        }
+    }
+    
+    var passwordTextField: some View {
+        ZStack(alignment: .leading){
+            if wrongAnswer{
+                Rectangle()
+                    .fill(Color(.white))
+                    .frame(height: self.screenSize.height*0.05)
+                    .shadow(radius: 5)
+                    .cornerRadius(10)
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.red, lineWidth: 4)
+                    .frame(height: self.screenSize.height*0.05)
+                
+            }else{
+                Rectangle()
+                .fill(Color(.white))
+                .cornerRadius(10)
+                .frame(height: self.screenSize.height*0.05)
+                .shadow(radius: 5)
+            }
+            
+            
+            if securePasswordActive {
+                SecureField("", text: $password, onCommit: onCommitPassword)
+            } else {
+                TextField("", text: $password, onCommit: onCommitPassword)
+            }
+            Image(systemName: wrongAnswer ?  "xmark.circle.fill" : "")
+                .foregroundColor(.red)
+                .padding()
+            HStack {
+                Spacer()
+                Button(action: {
+                    self.securePasswordActive.toggle()
+                }) {
+                    Image(systemName: securePasswordActive ? "eye.slash" : "eye")
+                        .renderingMode(.original)
+                        .padding()
+                }
+            }
+        }
+    }
+    
+    var passwordSupportHStack: some View {
+        HStack {
+            Text("Senha incorreta.")
+            Spacer()
+            Button(action: {
+                
+            }) {
+                Text("Esqueceu sua senha?")
+                    .underline()
+                    .foregroundColor(.blue)
+            }
+        }.padding(.top)
+    }
+    
+    var rememberMe: some View{
+        HStack {
+            Text("Lembre-me")
+            Spacer()
+            Toggle("", isOn: $remember)
+        }.padding(.top)
+    }
+    
+    static let gradientStart = Color(#colorLiteral(red: 1, green: 0.5843137255, blue: 0, alpha: 1))
+    static let gradientEnd = Color(#colorLiteral(red: 1, green: 0.368627451, blue: 0.2274509804, alpha: 1))
+
+    var loginButton: some View {
+        Button(action: {
+            
+        }) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .shadow(radius: 5)
+                    .frame(height: self.screenSize.height*0.06)
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(LinearGradient(
+                 gradient: .init(colors: [Self.gradientStart, Self.gradientEnd]),
+                 startPoint: .top,
+                 endPoint: .bottom
+                    ))
+                    .frame(height: self.screenSize.height*0.06)
+
+            Text("Entrar")
+                .foregroundColor(.white)
+                .bold()
+            }
+            .frame(height: 0.0446*screenSize.height)
+            .padding(.top, 0.03*screenSize.height)
+        }
+    }
+    
+    var createAccountButton: some View {
+        ZStack(alignment: .center){
+            Button(action: {
+
+            }) {
+                Text("Criar minha conta")
+                .underline()
+                    .foregroundColor(.blue)
+            }
+        }.frame(width: self.screenSize.width*0.9)
+            .padding(.top, 0.03*screenSize.height)
+    }
+
 }
 
 struct ProfileView_Previews: PreviewProvider {

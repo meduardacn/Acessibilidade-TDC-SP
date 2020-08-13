@@ -18,13 +18,13 @@ struct CustomTabBarView: View {
             }
             Text("Todo second item")
                 .tabItem{
-                    Image(systemName: "star.fill")
-                    Text("Favoritos")
+                    Image(systemName: "heart")
+                    Text("Favoritas")
                     
             }
             ProfileView()
                 .tabItem{
-                    Image(systemName: "person.fill")
+                    Image(systemName: "person")
                     
                     Text("Perfil")
             }
