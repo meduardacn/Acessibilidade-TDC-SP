@@ -17,7 +17,7 @@ struct ProfileView: View {
     @State var onCommitEmail: () -> Void = {}
     @State var onCommitPassword: () -> Void = {}
     @State var securePasswordActive = false
-    @State var wrongAnswer = true
+    @State var wrongAnswer = false
     @State var remember = false
 
    
@@ -36,7 +36,7 @@ struct ProfileView: View {
             .frame(width: geometry.size.width, height: geometry.size.height)
             
         }.edgesIgnoringSafeArea(.top)
-        .background(Color(#colorLiteral(red: 0.8980392157, green: 0.8980392157, blue: 0.8980392157, alpha: 1)))
+        .background(Color(#colorLiteral(red: 0.9491460919, green: 0.9487624764, blue: 0.9704342484, alpha: 1)))
         
     }
     
@@ -58,6 +58,7 @@ struct ProfileView: View {
         VStack(alignment: .center){
             Image("happyFace")
             Text("Olá! Faça login para ter acesso ao seu perfil e as suas receitas favoritas!")
+                .font(.system(size: 20))
                 .multilineTextAlignment(.center)
                 .frame(width: self.screenSize.width*0.9,height: self.screenSize.height*0.06)
 //            Divider()
@@ -68,9 +69,11 @@ struct ProfileView: View {
         VStack(alignment: .leading){
             Text("E-mail")
                 .bold()
+                .padding(.top,self.screenSize.height*0.04)
             self.emailTextField
             Text("Senha")
                 .bold()
+            .padding(.top,self.screenSize.height*0.01)
             self.passwordTextField
             if wrongAnswer{
                 self.passwordSupportHStack
@@ -90,9 +93,10 @@ struct ProfileView: View {
             Rectangle()
                 .fill(Color(.white))
                 .cornerRadius(10)
-                .frame(height: self.screenSize.height*0.05)
+                .frame(height: self.screenSize.height*0.052)
                 .shadow(radius: 5)
             TextField("", text: $email, onCommit: onCommitEmail)
+                .padding(.leading)
         }
     }
     
@@ -101,26 +105,28 @@ struct ProfileView: View {
             if wrongAnswer{
                 Rectangle()
                     .fill(Color(.white))
-                    .frame(height: self.screenSize.height*0.05)
+                    .frame(height: self.screenSize.height*0.052)
                     .shadow(radius: 5)
                     .cornerRadius(10)
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.red, lineWidth: 4)
-                    .frame(height: self.screenSize.height*0.05)
+                    .stroke(Color.red, lineWidth: 2)
+                    .frame(height: self.screenSize.height*0.052)
                 
             }else{
                 Rectangle()
                 .fill(Color(.white))
                 .cornerRadius(10)
-                .frame(height: self.screenSize.height*0.05)
+                .frame(height: self.screenSize.height*0.052)
                 .shadow(radius: 5)
             }
             
             
             if securePasswordActive {
                 SecureField("", text: $password, onCommit: onCommitPassword)
+                    .padding(.leading)
             } else {
                 TextField("", text: $password, onCommit: onCommitPassword)
+                    .padding(.leading)
             }
             Image(systemName: wrongAnswer ?  "xmark.circle.fill" : "")
                 .foregroundColor(.red)
@@ -149,7 +155,7 @@ struct ProfileView: View {
                     .underline()
                     .foregroundColor(.blue)
             }
-        }.padding(.top)
+        }.padding(.top,self.screenSize.height*0.01)
     }
     
     var rememberMe: some View{
@@ -157,7 +163,7 @@ struct ProfileView: View {
             Text("Lembre-me")
             Spacer()
             Toggle("", isOn: $remember)
-        }.padding(.top)
+        }.padding(.top,self.screenSize.height*0.01)
     }
     
     static let gradientStart = Color(#colorLiteral(red: 1, green: 0.5843137255, blue: 0, alpha: 1))
@@ -184,7 +190,7 @@ struct ProfileView: View {
                 .bold()
             }
             .frame(height: 0.0446*screenSize.height)
-            .padding(.top, 0.03*screenSize.height)
+            .padding(.top, screenSize.height*0.04)
         }
     }
     
