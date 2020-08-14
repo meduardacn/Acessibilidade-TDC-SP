@@ -14,6 +14,9 @@
 		60A43DB424E47337009A0E39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A43DB224E47337009A0E39 /* LaunchScreen.storyboard */; };
 		60A43DBC24E475F6009A0E39 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A43DBB24E475F6009A0E39 /* CustomTabBarView.swift */; };
 		60A43DC724E4809F009A0E39 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A43DC624E4809F009A0E39 /* ProfileView.swift */; };
+		60A624DC24E6D91E00EFDFCB /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A624DB24E6D91E00EFDFCB /* DiscoverView.swift */; };
+		60A624DE24E6DDA300EFDFCB /* Recepie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A624DD24E6DDA300EFDFCB /* Recepie.swift */; };
+		60A624E024E6DEE700EFDFCB /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A624DF24E6DEE700EFDFCB /* DiscoverViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		60A43DB524E47337009A0E39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60A43DBB24E475F6009A0E39 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 		60A43DC624E4809F009A0E39 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		60A624DB24E6D91E00EFDFCB /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
+		60A624DD24E6DDA300EFDFCB /* Recepie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recepie.swift; sourceTree = "<group>"; };
+		60A624DF24E6DEE700EFDFCB /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,7 @@
 		60A43DBF24E47C26009A0E39 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				60A624DB24E6D91E00EFDFCB /* DiscoverView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -100,6 +107,7 @@
 		60A43DC024E47C2D009A0E39 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				60A624DF24E6DEE700EFDFCB /* DiscoverViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -107,6 +115,7 @@
 		60A43DC124E47C3B009A0E39 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				60A624DD24E6DDA300EFDFCB /* Recepie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,7 +226,10 @@
 				60A43DAA24E47333009A0E39 /* SceneDelegate.swift in Sources */,
 				60A43DC724E4809F009A0E39 /* ProfileView.swift in Sources */,
 				60A43DAC24E47333009A0E39 /* ContentView.swift in Sources */,
+				60A624DE24E6DDA300EFDFCB /* Recepie.swift in Sources */,
+				60A624E024E6DEE700EFDFCB /* DiscoverViewModel.swift in Sources */,
 				60A43DBC24E475F6009A0E39 /* CustomTabBarView.swift in Sources */,
+				60A624DC24E6D91E00EFDFCB /* DiscoverView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

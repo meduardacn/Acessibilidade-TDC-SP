@@ -30,6 +30,7 @@ struct ProfileView: View {
                 self.header
                 self.informations
                 self.login
+                Spacer()
             }.onAppear {
                 self.screenSize = geometry.size
             }
@@ -82,7 +83,7 @@ struct ProfileView: View {
             }
             self.loginButton
             self.createAccountButton
-            Spacer()
+          
         }
         .frame(width: self.screenSize.width*0.9)
 
@@ -171,7 +172,7 @@ struct ProfileView: View {
 
     var loginButton: some View {
         Button(action: {
-            
+
         }) {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
