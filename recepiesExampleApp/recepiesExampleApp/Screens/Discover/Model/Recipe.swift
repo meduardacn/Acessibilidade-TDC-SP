@@ -1,5 +1,5 @@
 //
-//  Recepie.swift
+//  Recipe.swift
 //  recepiesExampleApp
 //
 //  Created by Maria Eduarda Casanova Nascimento on 14/08/20.
@@ -8,10 +8,8 @@
 
 import Foundation
 
-struct Recepie: Identifiable {
-    var id: UUID {
-        UUID()
-    }
+class Recipe: Identifiable {
+    var id: UUID
     
     var name: String
     var timeInMinutes: Int
@@ -23,10 +21,26 @@ struct Recepie: Identifiable {
     
     var imageName: String
     
+    init(name: String,
+    timeInMinutes: Int,
+    serves: Int,
+    isFavorited: Bool,
+    ingredients: String,
+    preparationMode: String,
+    imageName: String) {
+        self.id = UUID()
+        self.name = name
+        self.timeInMinutes = timeInMinutes
+        self.serves = serves
+        self.isFavorited = isFavorited
+        self.ingredients = ingredients
+        self.preparationMode = preparationMode
+        self.imageName = imageName
+    }
     #if DEBUG
 
-    static let pancakes: Recepie =
-        Recepie(name: "Panquecas com mel",
+    static let pancakes: Recipe =
+        Recipe(name: "Panquecas com mel",
                  timeInMinutes: 20,
                  serves: 2,
                  isFavorited: false,
@@ -34,8 +48,8 @@ struct Recepie: Identifiable {
                  preparationMode: "",
                  imageName: "pancakes")
     
-    static let eggs: Recepie =
-        Recepie(name: "Ovo mexido com ricota",
+    static let eggs: Recipe =
+        Recipe(name: "Ovo mexido com ricota",
                  timeInMinutes: 10,
                  serves: 1,
                  isFavorited: true,

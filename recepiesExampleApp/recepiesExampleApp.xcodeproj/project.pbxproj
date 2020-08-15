@@ -15,12 +15,12 @@
 		60A43DBC24E475F6009A0E39 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A43DBB24E475F6009A0E39 /* CustomTabBarView.swift */; };
 		60A43DC724E4809F009A0E39 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A43DC624E4809F009A0E39 /* ProfileView.swift */; };
 		60A624DC24E6D91E00EFDFCB /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A624DB24E6D91E00EFDFCB /* DiscoverView.swift */; };
-		60A624DE24E6DDA300EFDFCB /* Recepie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A624DD24E6DDA300EFDFCB /* Recepie.swift */; };
+		60A624DE24E6DDA300EFDFCB /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A624DD24E6DDA300EFDFCB /* Recipe.swift */; };
 		60A624E024E6DEE700EFDFCB /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A624DF24E6DEE700EFDFCB /* DiscoverViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		60A43DA424E47333009A0E39 /* recepiesExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recepiesExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		60A43DA424E47333009A0E39 /* recipeExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recipeExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60A43DA724E47333009A0E39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60A43DA924E47333009A0E39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		60A43DAB24E47333009A0E39 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -30,7 +30,7 @@
 		60A43DBB24E475F6009A0E39 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 		60A43DC624E4809F009A0E39 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		60A624DB24E6D91E00EFDFCB /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
-		60A624DD24E6DDA300EFDFCB /* Recepie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recepie.swift; sourceTree = "<group>"; };
+		60A624DD24E6DDA300EFDFCB /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		60A624DF24E6DEE700EFDFCB /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,7 +55,7 @@
 		60A43DA524E47333009A0E39 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				60A43DA424E47333009A0E39 /* recepiesExampleApp.app */,
+				60A43DA424E47333009A0E39 /* recipeExampleApp.app */,
 			);
 			name = Products;
 			path = ..;
@@ -115,7 +115,7 @@
 		60A43DC124E47C3B009A0E39 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				60A624DD24E6DDA300EFDFCB /* Recepie.swift */,
+				60A624DD24E6DDA300EFDFCB /* Recipe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 			);
 			name = recepiesExampleApp;
 			productName = recepiesExampleApp;
-			productReference = 60A43DA424E47333009A0E39 /* recepiesExampleApp.app */;
+			productReference = 60A43DA424E47333009A0E39 /* recipeExampleApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -226,7 +226,7 @@
 				60A43DAA24E47333009A0E39 /* SceneDelegate.swift in Sources */,
 				60A43DC724E4809F009A0E39 /* ProfileView.swift in Sources */,
 				60A43DAC24E47333009A0E39 /* ContentView.swift in Sources */,
-				60A624DE24E6DDA300EFDFCB /* Recepie.swift in Sources */,
+				60A624DE24E6DDA300EFDFCB /* Recipe.swift in Sources */,
 				60A624E024E6DEE700EFDFCB /* DiscoverViewModel.swift in Sources */,
 				60A43DBC24E475F6009A0E39 /* CustomTabBarView.swift in Sources */,
 				60A624DC24E6D91E00EFDFCB /* DiscoverView.swift in Sources */,
@@ -374,8 +374,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = meduardacn.recepiesExampleApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = meduardacn.recipeExampleApp;
+				PRODUCT_NAME = recipeExampleApp;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -394,8 +394,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = meduardacn.recepiesExampleApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = meduardacn.recipeExampleApp;
+				PRODUCT_NAME = recipeExampleApp;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

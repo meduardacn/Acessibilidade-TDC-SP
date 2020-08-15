@@ -10,26 +10,24 @@ import Foundation
 import SwiftUI
 
 class DiscoverViewModel: ObservableObject{
-    @Published var breakfast: [Recepie]
-    @Published var popular: [Recepie]
-    @State var favorites: [Recepie] = []
+    @Published var breakfast: [Recipe]
+    @State var popular: [Recipe]
     
     init() {
-        breakfast = [Recepie.pancakes,Recepie.eggs]
+        breakfast = [Recipe.pancakes,Recipe.eggs]
         popular = []
-        initFavorites()
     }
-    
-    func initFavorites(){
-        for recepie in breakfast{
-            if recepie.isFavorited{
-                favorites.append(recepie)
-            }
+        
+    func setFavorite(item recipe: Recipe) {
+        if let index = self.breakfast.firstIndex(where: { $0.id == recipe.id }) {
+            self.breakfast[index].isFavorited = !self.breakfast[index].isFavorited
+            self.objectWillChange.send()
+            return
         }
-        for recepie in popular{
-            if recepie.isFavorited{
-                favorites.append(recepie)
-            }
+        if let index = self.popular.firstIndex(where: { $0.id == recipe.id }) {
+            self.popular[index].isFavorited = !self.popular[index].isFavorited
+            self.objectWillChange.send()
+            return
         }
     }
     

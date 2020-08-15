@@ -1,6 +1,6 @@
 //
 //  ProfileView.swift
-//  recepiesExampleApp
+//  recipesExampleApp
 //
 //  Created by Maria Eduarda Casanova Nascimento on 12/08/20.
 //  Copyright © 2020 Maria Eduarda. All rights reserved.
