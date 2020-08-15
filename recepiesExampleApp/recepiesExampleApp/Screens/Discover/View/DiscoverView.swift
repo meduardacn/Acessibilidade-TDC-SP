@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct DiscoverView: View {
+    @State var isActive : Bool = false
+    
     @State var screenSize: CGSize = CGSize(width: 0, height: 0)
     
     @ObservedObject var viewModel: DiscoverViewModel
@@ -16,7 +18,6 @@ struct DiscoverView: View {
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
-                
                 List{
                     self.header
                     self.listOfButtons

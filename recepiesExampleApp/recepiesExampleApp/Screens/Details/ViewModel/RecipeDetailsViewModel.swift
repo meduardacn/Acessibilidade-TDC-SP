@@ -11,7 +11,9 @@ import Foundation
 class RecipeDetailsViewModel: ObservableObject {
     @Published var recipe: Recipe
     
+
     init(recipe: Recipe) {
         self.recipe = recipe
     }
+    
 }
