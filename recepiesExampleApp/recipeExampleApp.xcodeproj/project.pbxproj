@@ -155,9 +155,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		60A43DA324E47333009A0E39 /* recepiesExampleApp */ = {
+		60A43DA324E47333009A0E39 /* recipeExampleApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 60A43DB824E47337009A0E39 /* Build configuration list for PBXNativeTarget "recepiesExampleApp" */;
+			buildConfigurationList = 60A43DB824E47337009A0E39 /* Build configuration list for PBXNativeTarget "recipeExampleApp" */;
 			buildPhases = (
 				60A43DA024E47333009A0E39 /* Sources */,
 				60A43DA124E47333009A0E39 /* Frameworks */,
@@ -167,7 +167,7 @@
 			);
 			dependencies = (
 			);
-			name = recepiesExampleApp;
+			name = recipeExampleApp;
 			productName = recepiesExampleApp;
 			productReference = 60A43DA424E47333009A0E39 /* recipeExampleApp.app */;
 			productType = "com.apple.product-type.application";
@@ -187,7 +187,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 60A43D9F24E47333009A0E39 /* Build configuration list for PBXProject "recepiesExampleApp" */;
+			buildConfigurationList = 60A43D9F24E47333009A0E39 /* Build configuration list for PBXProject "recipeExampleApp" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -200,7 +200,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				60A43DA324E47333009A0E39 /* recepiesExampleApp */,
+				60A43DA324E47333009A0E39 /* recipeExampleApp */,
 			);
 		};
 /* End PBXProject section */
@@ -404,7 +404,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		60A43D9F24E47333009A0E39 /* Build configuration list for PBXProject "recepiesExampleApp" */ = {
+		60A43D9F24E47333009A0E39 /* Build configuration list for PBXProject "recipeExampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60A43DB624E47337009A0E39 /* Debug */,
@@ -413,7 +413,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		60A43DB824E47337009A0E39 /* Build configuration list for PBXNativeTarget "recepiesExampleApp" */ = {
+		60A43DB824E47337009A0E39 /* Build configuration list for PBXNativeTarget "recipeExampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60A43DB924E47337009A0E39 /* Debug */,

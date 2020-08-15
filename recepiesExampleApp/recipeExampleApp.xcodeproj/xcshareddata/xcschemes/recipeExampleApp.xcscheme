@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "60A43DA324E47333009A0E39"
                BuildableName = "recipeExampleApp.app"
-               BlueprintName = "recepiesExampleApp"
-               ReferencedContainer = "container:recepiesExampleApp.xcodeproj">
+               BlueprintName = "recipeExampleApp"
+               ReferencedContainer = "container:recipeExampleApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,8 +46,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "60A43DA324E47333009A0E39"
             BuildableName = "recipeExampleApp.app"
-            BlueprintName = "recepiesExampleApp"
-            ReferencedContainer = "container:recepiesExampleApp.xcodeproj">
+            BlueprintName = "recipeExampleApp"
+            ReferencedContainer = "container:recipeExampleApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "60A43DA324E47333009A0E39"
             BuildableName = "recipeExampleApp.app"
-            BlueprintName = "recepiesExampleApp"
-            ReferencedContainer = "container:recepiesExampleApp.xcodeproj">
+            BlueprintName = "recipeExampleApp"
+            ReferencedContainer = "container:recipeExampleApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
