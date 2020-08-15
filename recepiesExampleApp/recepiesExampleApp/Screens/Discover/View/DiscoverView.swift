@@ -20,7 +20,7 @@ struct DiscoverView: View {
                 List{
                     self.listOfButtons
                     self.forBreakfast
-                    self.test
+                    self.popular
                     Spacer()
                 }
             }.onAppear {
@@ -97,28 +97,11 @@ struct DiscoverView: View {
                     
                 }
             }
-        }.padding(.top,screenSize.height*0.05)
-            .listRowBackground(Color(#colorLiteral(red: 0.9491460919, green: 0.9487624764, blue: 0.9704342484, alpha: 1)))
+        }
+        .listRowBackground(Color(#colorLiteral(red: 0.9491460919, green: 0.9487624764, blue: 0.9704342484, alpha: 1)))
     }
-    
-    var pooular: some View {
-        VStack(alignment: .leading){
-            Text("Popular")
-                .font(.title)
-                .bold()
-            ForEach(self.viewModel.popular) { recipe in
-                Button(action: {
-                    //
-                }) {
-                    self.recipeCard(recipe)
-                }
-            }
-            
-        }.padding(.top,screenSize.height*0.05)
-            .listRowBackground(Color(#colorLiteral(red: 0.9491460919, green: 0.9487624764, blue: 0.9704342484, alpha: 1)))
-    }
-    
-    var test: some View{
+        
+    var popular: some View{
         VStack(alignment: .leading){
             Text("Popular")
                 .font(.title)
@@ -139,7 +122,7 @@ struct DiscoverView: View {
                     }
                 }
             }
-        }.padding(.top,screenSize.height*0.05)
+        }.padding(.top)
         .listRowBackground(Color(#colorLiteral(red: 0.9491460919, green: 0.9487624764, blue: 0.9704342484, alpha: 1)))
 
     }
@@ -197,7 +180,10 @@ struct DiscoverView: View {
                 Spacer()
             }
             .frame(width: screenSize.width*0.4, height: screenSize.height*0.35)
-            
+            Rectangle()
+                .foregroundColor(.white)
+                .frame(width: screenSize.width*0.43, height: screenSize.height*0.022, alignment: .leading)
+                .padding(.top,screenSize.height*0.07)
         }
         .padding(.trailing)
         .padding(.top)

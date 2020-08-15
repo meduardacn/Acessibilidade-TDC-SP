@@ -64,16 +64,16 @@ class Recipe: Identifiable {
              isFavorited: false,
              ingredients: "",
              preparationMode: "",
-             imageName: "eggs")
+             imageName: "falafel")
     
     static let salad: Recipe =
     Recipe(name: "Salada Cesar",
              timeInMinutes: 25,
              serves: 4,
-             isFavorited: false,
+             isFavorited: true,
              ingredients: "",
              preparationMode: "",
-             imageName: "eggs")
+             imageName: "salad")
     
     static let quiche: Recipe =
     Recipe(name: "Quiche de alho póro com ricota",
@@ -82,7 +82,7 @@ class Recipe: Identifiable {
              isFavorited: false,
              ingredients: "",
              preparationMode: "",
-             imageName: "eggs")
+             imageName: "quiche")
     
     static let lasagna: Recipe =
     Recipe(name: "Lasanha bolonhesa",
@@ -91,7 +91,7 @@ class Recipe: Identifiable {
              isFavorited: false,
              ingredients: "",
              preparationMode: "",
-             imageName: "eggs")
+             imageName: "lasagna")
     
     
     
