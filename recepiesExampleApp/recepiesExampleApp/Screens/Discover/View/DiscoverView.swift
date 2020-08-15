@@ -14,32 +14,37 @@ struct DiscoverView: View {
     @ObservedObject var viewModel: DiscoverViewModel
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack{
-                self.header
+        NavigationView {
+            GeometryReader { geometry in
+                
                 List{
+                    self.header
                     self.listOfButtons
-                    self.forBreakfast
-                    self.popular
+                    ScrollView(.vertical, showsIndicators: false) {
+                        self.forBreakfast
+                        self.popular
+                    }.listRowBackground(Color(#colorLiteral(red: 0.9491460919, green: 0.9487624764, blue: 0.9704342484, alpha: 1)))
+                    
                     Spacer()
                 }
-            }.onAppear {
-                UITableView.appearance().separatorStyle = .none
-                self.screenSize = geometry.size
-            }
-        }.edgesIgnoringSafeArea(.top)
+                .onAppear {
+                    UITableView.appearance().separatorStyle = .none
+                    self.screenSize = geometry.size
+                }
+            }.edgesIgnoringSafeArea(.top)
+        }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
     }
     
     var header: some View {
         ZStack(alignment: .bottomLeading, content: {
             Rectangle()
                 .fill(Color(.white))
-                .frame(height: self.screenSize.height*0.15)
+                .frame(height: self.screenSize.height*0.135)
             Text("Receitas")
                 .font(.largeTitle)
                 .fontWeight(.semibold)
-                
-                .padding(.leading,self.screenSize.width*0.05)
                 .padding(.bottom,self.screenSize.width*0.025)
         })
     }
@@ -89,9 +94,9 @@ struct DiscoverView: View {
                 .bold()
             HStack{
                 ForEach(self.viewModel.breakfast) { recipe in
-                    Button(action: {
-                        //
-                    }) {
+                    NavigationLink(destination: RecipeDetails(viewModel: RecipeDetailsViewModel(recipe: recipe))
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)) {
                         self.recipeCard(recipe)
                     }
                     
@@ -100,7 +105,7 @@ struct DiscoverView: View {
         }
         .listRowBackground(Color(#colorLiteral(red: 0.9491460919, green: 0.9487624764, blue: 0.9704342484, alpha: 1)))
     }
-        
+    
     var popular: some View{
         VStack(alignment: .leading){
             Text("Popular")
@@ -109,23 +114,24 @@ struct DiscoverView: View {
             ForEach(0..<self.viewModel.popular.count) { i in
                 HStack{
                     if(i%2 == 0){
-                        Button(action: {
-                            //
-                        }) {
-                            self.recipeCard(self.viewModel.popular[i])
-                        }
-                        Button(action: {
-                            //
-                        }) {
-                            self.recipeCard(self.viewModel.popular[i+1])
-                        }
+                        self.popoularNavigation(recipe: self.viewModel.popular[i])
+                        self.popoularNavigation(recipe: self.viewModel.popular[i+1])
                     }
                 }
             }
         }.padding(.top)
-        .listRowBackground(Color(#colorLiteral(red: 0.9491460919, green: 0.9487624764, blue: 0.9704342484, alpha: 1)))
-
+            .listRowBackground(Color(#colorLiteral(red: 0.9491460919, green: 0.9487624764, blue: 0.9704342484, alpha: 1)))
+        
     }
+    
+    func popoularNavigation(recipe: Recipe) -> some View{
+        NavigationLink(destination: RecipeDetails(viewModel: RecipeDetailsViewModel(recipe: recipe))
+        .navigationBarTitle("")
+        .navigationBarHidden(true)) {
+            self.recipeCard(recipe)
+        }
+    }
+    
     
     static let heartGradientStart = Color(#colorLiteral(red: 1, green: 0.368627451, blue: 0.2274509804, alpha: 1))
     static let heartGradientEnd = Color(#colorLiteral(red: 1, green: 0.1647058824, blue: 0.4078431373, alpha: 1))
@@ -161,7 +167,6 @@ struct DiscoverView: View {
                     ZStack{
                         Button(action: {
                             self.viewModel.setFavorite(item: recipe)
-                            print("action")
                         }) {
                             if recipe.isFavorited{
                                 LinearGradient(gradient: Gradient(colors: [DiscoverView.heartGradientStart, DiscoverView.heartGradientEnd]), startPoint: .top, endPoint: .bottom)

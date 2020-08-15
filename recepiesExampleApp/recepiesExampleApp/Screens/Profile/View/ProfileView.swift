@@ -129,9 +129,11 @@ struct ProfileView: View {
                 TextField("", text: $password, onCommit: onCommitPassword)
                     .padding(.leading)
             }
-            Image(systemName: wrongAnswer ?  "xmark.circle.fill" : "")
+            if wrongAnswer{
+                Image(systemName: "xmark.circle.fill" )
                 .foregroundColor(.red)
                 .padding()
+            }
             HStack {
                 Spacer()
                 Button(action: {
