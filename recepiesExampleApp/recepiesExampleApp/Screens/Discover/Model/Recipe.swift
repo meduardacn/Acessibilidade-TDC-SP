@@ -56,7 +56,44 @@ class Recipe: Identifiable {
                  ingredients: "",
                  preparationMode: "",
                  imageName: "eggs")
-        
+    
+    static let falafel: Recipe =
+    Recipe(name: "Falafel",
+             timeInMinutes: 45,
+             serves: 6,
+             isFavorited: false,
+             ingredients: "",
+             preparationMode: "",
+             imageName: "eggs")
+    
+    static let salad: Recipe =
+    Recipe(name: "Salada Cesar",
+             timeInMinutes: 25,
+             serves: 4,
+             isFavorited: false,
+             ingredients: "",
+             preparationMode: "",
+             imageName: "eggs")
+    
+    static let quiche: Recipe =
+    Recipe(name: "Quiche de alho póro com ricota",
+             timeInMinutes: 60,
+             serves: 8,
+             isFavorited: false,
+             ingredients: "",
+             preparationMode: "",
+             imageName: "eggs")
+    
+    static let lasagna: Recipe =
+    Recipe(name: "Lasanha bolonhesa",
+             timeInMinutes: 40,
+             serves: 5,
+             isFavorited: false,
+             ingredients: "",
+             preparationMode: "",
+             imageName: "eggs")
+    
+    
     
     #endif
 }

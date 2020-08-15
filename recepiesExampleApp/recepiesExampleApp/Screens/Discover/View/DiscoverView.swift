@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DiscoverView: View {
     @State var screenSize: CGSize = CGSize(width: 0, height: 0)
-
+    
     @ObservedObject var viewModel: DiscoverViewModel
     
     var body: some View {
@@ -20,6 +20,7 @@ struct DiscoverView: View {
                 List{
                     self.listOfButtons
                     self.forBreakfast
+                    self.test
                     Spacer()
                 }
             }.onAppear {
@@ -49,17 +50,17 @@ struct DiscoverView: View {
     var listOfButtons: some View{
         VStack{
             HStack{
-                 recipeButtons(buttonName: "Receitas fáceis")
-                 recipeButtons(buttonName: "Para Compartilhar")
+                recipeButtons(buttonName: "Receitas fáceis")
+                recipeButtons(buttonName: "Para Compartilhar")
             }
             HStack{
-                 recipeButtons(buttonName: "Sobremesas")
-                 recipeButtons(buttonName: "Pratos Veganos")
+                recipeButtons(buttonName: "Sobremesas")
+                recipeButtons(buttonName: "Pratos Veganos")
             }
         }
         .padding(.top, screenSize.height*0.02 )
         .listRowBackground(Color(#colorLiteral(red: 0.9491460919, green: 0.9487624764, blue: 0.9704342484, alpha: 1)))
-       
+        
     }
     
     func recipeButtons(buttonName: String )-> some View {
@@ -69,9 +70,9 @@ struct DiscoverView: View {
             ZStack{
                 RoundedRectangle(cornerRadius: 25)
                     .fill(LinearGradient(
-                 gradient: .init(colors: [Self.gradientStart, Self.gradientEnd]),
-                 startPoint: .top,
-                 endPoint: .bottom
+                        gradient: .init(colors: [Self.gradientStart, Self.gradientEnd]),
+                        startPoint: .top,
+                        endPoint: .bottom
                     ))
                     .shadow(radius: 3)
                 Text(buttonName)
@@ -85,6 +86,7 @@ struct DiscoverView: View {
         VStack(alignment: .leading){
             Text("Para o café da manhã")
                 .font(.title)
+                .bold()
             HStack{
                 ForEach(self.viewModel.breakfast) { recipe in
                     Button(action: {
@@ -92,13 +94,56 @@ struct DiscoverView: View {
                     }) {
                         self.recipeCard(recipe)
                     }
+                    
+                }
+            }
+        }.padding(.top,screenSize.height*0.05)
+            .listRowBackground(Color(#colorLiteral(red: 0.9491460919, green: 0.9487624764, blue: 0.9704342484, alpha: 1)))
+    }
     
+    var pooular: some View {
+        VStack(alignment: .leading){
+            Text("Popular")
+                .font(.title)
+                .bold()
+            ForEach(self.viewModel.popular) { recipe in
+                Button(action: {
+                    //
+                }) {
+                    self.recipeCard(recipe)
+                }
+            }
+            
+        }.padding(.top,screenSize.height*0.05)
+            .listRowBackground(Color(#colorLiteral(red: 0.9491460919, green: 0.9487624764, blue: 0.9704342484, alpha: 1)))
+    }
+    
+    var test: some View{
+        VStack(alignment: .leading){
+            Text("Popular")
+                .font(.title)
+                .bold()
+            ForEach(0..<self.viewModel.popular.count) { i in
+                HStack{
+                    if(i%2 == 0){
+                        Button(action: {
+                            //
+                        }) {
+                            self.recipeCard(self.viewModel.popular[i])
+                        }
+                        Button(action: {
+                            //
+                        }) {
+                            self.recipeCard(self.viewModel.popular[i+1])
+                        }
+                    }
                 }
             }
         }.padding(.top,screenSize.height*0.05)
         .listRowBackground(Color(#colorLiteral(red: 0.9491460919, green: 0.9487624764, blue: 0.9704342484, alpha: 1)))
+
     }
-  
+    
     static let heartGradientStart = Color(#colorLiteral(red: 1, green: 0.368627451, blue: 0.2274509804, alpha: 1))
     static let heartGradientEnd = Color(#colorLiteral(red: 1, green: 0.1647058824, blue: 0.4078431373, alpha: 1))
     
@@ -110,13 +155,14 @@ struct DiscoverView: View {
                 .shadow(radius: 5)
             VStack(alignment: .leading){
                 Image(recipe.imageName)
-                .resizable()
-                .renderingMode(.original)
-                .frame(width: screenSize.width*0.43, height: screenSize.height*0.22, alignment: .center)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .resizable()
+                    .renderingMode(.original)
+                    .frame(width: screenSize.width*0.43, height: screenSize.height*0.22, alignment: .center)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
                 Text(recipe.name)
+                    .fixedSize(horizontal: false, vertical: true)
                     .padding(.leading)
-                    .padding(.trailing,screenSize.width*0.1)
+                Spacer()
                 HStack{
                     VStack{
                         HStack{
@@ -136,9 +182,9 @@ struct DiscoverView: View {
                         }) {
                             if recipe.isFavorited{
                                 LinearGradient(gradient: Gradient(colors: [DiscoverView.heartGradientStart, DiscoverView.heartGradientEnd]), startPoint: .top, endPoint: .bottom)
-                                .mask(Image(systemName: "suit.heart.fill")
-                                  .resizable())
-                                .frame(width: screenSize.height*0.03, height: screenSize.height*0.03)
+                                    .mask(Image(systemName: "suit.heart.fill")
+                                        .resizable())
+                                    .frame(width: screenSize.height*0.03, height: screenSize.height*0.03)
                             }else{
                                 Image(systemName: "suit.heart")
                                     .resizable()
@@ -150,11 +196,11 @@ struct DiscoverView: View {
                 }
                 Spacer()
             }
-            Rectangle()
-            .fill(Color(.white))
-            .frame(width: screenSize.width*0.43, height: screenSize.height*0.015)
-                .padding(.top,screenSize.height*0.075)
-        }.padding(.trailing)
+            .frame(width: screenSize.width*0.4, height: screenSize.height*0.35)
+            
+        }
+        .padding(.trailing)
+        .padding(.top)
     }
     
 }
