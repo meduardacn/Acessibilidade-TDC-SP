@@ -14,8 +14,8 @@ class DiscoverViewModel: ObservableObject{
     @State var popular: [Recipe]
     
     init() {
-        breakfast = [Recipe.pancakes,Recipe.eggs]
-        popular = [Recipe.falafel,Recipe.salad,Recipe.quiche,Recipe.lasagna]
+        breakfast = Recipe.breakfast
+        popular = Recipe.popular
     }
         
     func setFavorite(item recipe: Recipe) {

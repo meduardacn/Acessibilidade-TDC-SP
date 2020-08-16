@@ -95,7 +95,7 @@ struct DiscoverView: View {
                 .bold()
             HStack{
                 ForEach(self.viewModel.breakfast) { recipe in
-                    NavigationLink(destination: RecipeDetails(viewModel: RecipeDetailsViewModel(recipe: recipe))
+                    NavigationLink(destination: RecipeDetails(cellViewModel: RecipeDetailsViewModel(recipe: recipe), viewModel: self.viewModel)
                     .navigationBarTitle("")
                     .navigationBarHidden(true)) {
                         self.recipeCard(recipe)
@@ -126,7 +126,7 @@ struct DiscoverView: View {
     }
     
     func popoularNavigation(recipe: Recipe) -> some View{
-        NavigationLink(destination: RecipeDetails(viewModel: RecipeDetailsViewModel(recipe: recipe))
+        NavigationLink(destination: RecipeDetails(cellViewModel: RecipeDetailsViewModel(recipe: recipe), viewModel: self.viewModel)
         .navigationBarTitle("")
         .navigationBarHidden(true)) {
             self.recipeCard(recipe)

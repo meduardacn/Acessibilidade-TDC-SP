@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		60523AC424E85D0B00BA5830 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60523AC324E85D0B00BA5830 /* Assets.xcassets */; };
+		60523AC624E8C5B300BA5830 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60523AC524E8C5B300BA5830 /* Favorites.swift */; };
 		60A43DA824E47333009A0E39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A43DA724E47333009A0E39 /* AppDelegate.swift */; };
 		60A43DAA24E47333009A0E39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A43DA924E47333009A0E39 /* SceneDelegate.swift */; };
 		60A43DAC24E47333009A0E39 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A43DAB24E47333009A0E39 /* ContentView.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		60523AC324E85D0B00BA5830 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/Assets.xcassets"; sourceTree = "<group>"; };
+		60523AC524E8C5B300BA5830 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		60A43DA424E47333009A0E39 /* recipeExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recipeExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60A43DA724E47333009A0E39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60A43DA924E47333009A0E39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				60A43DBD24E47B1D009A0E39 /* Screens */,
+				60523AC524E8C5B300BA5830 /* Favorites.swift */,
 				60A43DA724E47333009A0E39 /* AppDelegate.swift */,
 				60A43DBB24E475F6009A0E39 /* CustomTabBarView.swift */,
 				60A43DA924E47333009A0E39 /* SceneDelegate.swift */,
@@ -265,6 +268,7 @@
 				60A43DAA24E47333009A0E39 /* SceneDelegate.swift in Sources */,
 				60A43DC724E4809F009A0E39 /* ProfileView.swift in Sources */,
 				60A43DAC24E47333009A0E39 /* ContentView.swift in Sources */,
+				60523AC624E8C5B300BA5830 /* Favorites.swift in Sources */,
 				60A624DE24E6DDA300EFDFCB /* Recipe.swift in Sources */,
 				60A624E024E6DEE700EFDFCB /* DiscoverViewModel.swift in Sources */,
 				60EB3CA124E78C9B00DC6EA8 /* RecipeDetails.swift in Sources */,

@@ -13,7 +13,8 @@ struct RecipeDetails: View {
     
     @State var screenSize: CGSize = CGSize(width: 0, height: 0)
     
-    @ObservedObject var viewModel: RecipeDetailsViewModel
+    @ObservedObject var cellViewModel: RecipeDetailsViewModel
+    @ObservedObject var viewModel: DiscoverViewModel
     
     var modalHeight: CGFloat = UIScreen.main.bounds.height * 0.60
     
@@ -21,7 +22,7 @@ struct RecipeDetails: View {
         GeometryReader { geometry in
             ZStack(alignment: .topLeading){
                 VStack{
-                    Image(self.viewModel.recipe.imageName)
+                    Image(self.cellViewModel.recipe.imageName)
                         .resizable()
                         .renderingMode(.original)
                         .frame(width: self.screenSize.width, height: self.screenSize.height*0.5)
@@ -35,10 +36,11 @@ struct RecipeDetails: View {
                 }) {
                     HStack{
                         Image("arrow")
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                             
                         Text("Voltar")
-                            .foregroundColor(.black).bold()
+                            .foregroundColor(.white)
+                            .bold()
                     }.padding()
                         .padding(.top,self.screenSize.height * 0.03)
                 }
@@ -59,7 +61,7 @@ struct RecipeDetails: View {
         VStack{
             List{
                 HStack{
-                    Text(self.viewModel.recipe.name)
+                    Text(self.cellViewModel.recipe.name)
                         .font(.largeTitle)
                         .padding(.top)
                     Spacer()
@@ -67,16 +69,16 @@ struct RecipeDetails: View {
                 }
                 HStack{
                     Image(systemName: "clock")
-                    Text("\(self.viewModel.recipe.timeInMinutes) min      ")
+                    Text("\(self.cellViewModel.recipe.timeInMinutes) min      ")
                     Image(systemName: "person")
-                    Text("\(self.viewModel.recipe.serves) pessoas")
+                    Text("\(self.cellViewModel.recipe.serves) pessoas")
                 }
                 Text("INGREDIENTES")
                     .bold()
-                Text(self.viewModel.recipe.ingredients)
+                Text(self.cellViewModel.recipe.ingredients)
                 Text("MODO DE PREPARO")
                     .bold()
-                Text(self.viewModel.recipe.preparationMode)
+                Text(self.cellViewModel.recipe.preparationMode)
             }.cornerRadius(40)
                 .frame(width: self.screenSize.width, height: modalHeight)
                 .padding(.top,self.screenSize.height * -0.15)
@@ -87,10 +89,9 @@ struct RecipeDetails: View {
     
     var favorite: some View{
         Button(action: {
-            print("oi")
-            //            self.viewModel.setFavorite(item: recipe)
+            self.viewModel.setFavorite(item: self.cellViewModel.recipe)
         }) {
-            if self.viewModel.recipe.isFavorited{
+            if self.cellViewModel.recipe.isFavorited{
                 LinearGradient(gradient: Gradient(colors: [DiscoverView.heartGradientStart, DiscoverView.heartGradientEnd]), startPoint: .top, endPoint: .bottom)
                     .mask(Image(systemName: "suit.heart.fill")
                         .resizable())
@@ -111,6 +112,6 @@ struct RecipeDetails: View {
 struct RecipeDetails_Previews: PreviewProvider {
     let boolean  = false
     static var previews: some View {
-        RecipeDetails(viewModel: RecipeDetailsViewModel(recipe: Recipe.falafel))
+        RecipeDetails(cellViewModel: RecipeDetailsViewModel(recipe: Recipe.falafel), viewModel: DiscoverViewModel())
     }
 }
