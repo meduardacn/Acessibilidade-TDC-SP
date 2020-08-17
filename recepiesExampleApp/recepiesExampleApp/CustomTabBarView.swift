@@ -11,7 +11,7 @@ import SwiftUI
 struct CustomTabBarView: View {
     var body: some View {
         TabView {
-            DiscoverView(viewModel: DiscoverViewModel())
+            DiscoverView(viewModel: RecipeDataViewModel())
                 .tabItem {
                     Image(systemName:  "magnifyingglass")
                     Text("Descobrir")
