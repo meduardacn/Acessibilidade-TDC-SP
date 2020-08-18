@@ -14,7 +14,7 @@ struct RecipeDetails: View {
     @State var screenSize: CGSize = CGSize(width: 0, height: 0)
     
     @ObservedObject var cellViewModel: RecipeDetailsViewModel
-    @ObservedObject var viewModel: RecipeDataViewModel
+    @ObservedObject var viewModel: DiscoverViewModel
     
     var modalHeight: CGFloat = UIScreen.main.bounds.height * 0.60
     
@@ -112,6 +112,6 @@ struct RecipeDetails: View {
 struct RecipeDetails_Previews: PreviewProvider {
     let boolean  = false
     static var previews: some View {
-        RecipeDetails(cellViewModel: RecipeDetailsViewModel(recipe: Recipe.falafel), viewModel: RecipeDataViewModel())
+        RecipeDetails(cellViewModel: RecipeDetailsViewModel(recipe: Recipe.falafel), viewModel: DiscoverViewModel())
     }
 }

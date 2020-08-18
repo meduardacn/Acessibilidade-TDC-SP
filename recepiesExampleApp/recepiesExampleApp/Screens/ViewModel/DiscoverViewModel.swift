@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-class RecipeDataViewModel: ObservableObject{
+class DiscoverViewModel: ObservableObject{
     @Published var breakfast: [Recipe]
     @Published var popular: [Recipe]
     

@@ -13,7 +13,7 @@ struct DiscoverView: View {
     
     @State var screenSize: CGSize = CGSize(width: 0, height: 0)
     
-    @ObservedObject var viewModel: RecipeDataViewModel
+    @ObservedObject var viewModel: DiscoverViewModel
     
     var body: some View {
         NavigationView {
@@ -199,6 +199,6 @@ struct DiscoverView: View {
 
 struct DiscoverView_Previews: PreviewProvider {
     static var previews: some View {
-        DiscoverView(viewModel: RecipeDataViewModel())
+        DiscoverView(viewModel: DiscoverViewModel())
     }
 }

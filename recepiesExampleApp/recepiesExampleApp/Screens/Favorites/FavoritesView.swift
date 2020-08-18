@@ -11,7 +11,7 @@ import SwiftUI
 struct FavoritesView: View {
     @State var screenSize: CGSize = CGSize(width: 0, height: 0)
     
-    @ObservedObject var viewModel: RecipeDataViewModel
+    @ObservedObject var viewModel: DiscoverViewModel
 
     var body: some View {
         GeometryReader { geometry in
@@ -122,6 +122,6 @@ struct FavoritesView: View {
 
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoritesView(viewModel: RecipeDataViewModel())
+        FavoritesView(viewModel: DiscoverViewModel())
     }
 }
