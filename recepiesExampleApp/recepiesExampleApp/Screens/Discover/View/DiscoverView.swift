@@ -69,6 +69,8 @@ struct DiscoverView: View {
         
     }
     
+    
+    
     func recipeButtons(buttonName: String )-> some View {
         Button(action: {
             //
@@ -84,9 +86,18 @@ struct DiscoverView: View {
                 Text(buttonName)
                     .bold()
                     .foregroundColor(.white)
-            }.frame(width: self.screenSize.width*0.45, height: self.screenSize.height*0.05, alignment: .center)
+            }
+            .frame(width: self.screenSize.width*0.45,
+                   height: self.screenSize.height*0.05,
+                   alignment: .center)
+            .frame(minWidth: 44, minHeight: 44)
         }
     }
+    
+    
+    
+    
+    
     
     var forBreakfast: some View {
         VStack(alignment: .leading){
