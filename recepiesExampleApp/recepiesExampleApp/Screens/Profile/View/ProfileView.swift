@@ -128,12 +128,12 @@ struct ProfileView: View {
             
             if securePasswordActive {
                 SecureField("", text: $password, onCommit: onCommitPassword)
-                    .accessibility(label: Text("Insira sua senha, ela ficará visível"))
+                    .accessibility(label: Text("Insira sua senha, ela ficará escondida"))
                     .frame(minWidth: 44, minHeight: 44)
                     .padding(.leading, wrongAnswer ? 44 : 10)
             } else {
                 TextField("", text: $password, onCommit: onCommitPassword)
-                    .accessibility(label: Text("Insira sua senha, ela ficará escondida"))
+                    .accessibility(label: Text("Insira sua senha, ela ficará visível"))
                     .frame(minWidth: 44, minHeight: 44)
                     .padding(.leading, wrongAnswer ? 44 : 10)
             }
@@ -154,7 +154,7 @@ struct ProfileView: View {
                 }
                 .accessibilityElement()
                 .accessibility(addTraits: AccessibilityTraits.isButton)
-                .accessibility(label: Text(securePasswordActive ? "Tornar senha invisível" : "Tornar senha visível"))
+                .accessibility(label: Text(securePasswordActive ? "Tornar senha visível" : "Tornar senha invisível" ))
                 .accessibility(hint: Text("Muda a visibilidade da senha"))
                 .frame(width: 44, height: 44)
             }
