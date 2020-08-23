@@ -94,11 +94,6 @@ struct DiscoverView: View {
         }
     }
     
-    
-    
-    
-    
-    
     var forBreakfast: some View {
         VStack(alignment: .leading){
             Text("Para o café da manhã")
@@ -152,7 +147,7 @@ struct DiscoverView: View {
         ZStack{
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(.white)
-                .frame(width: screenSize.width*0.43, height: screenSize.height*0.35, alignment: .leading)
+                .frame(width: screenSize.width*0.43, height: screenSize.height*0.38, alignment: .leading)
                 .shadow(radius: 5)
             VStack(alignment: .leading){
                 Image(recipe.imageName)
@@ -190,17 +185,18 @@ struct DiscoverView: View {
                                     .resizable()
                                     .frame(width: screenSize.height*0.03, height: screenSize.height*0.03)
                             }
-                        }
+                        }.accessibility(label: Text(recipe.isFavorited ? "Desfavoritar receita" : "Favoritar Receita"))
+                        
                         
                     }.padding(.trailing)
                 }
                 Spacer()
             }
-            .frame(width: screenSize.width*0.4, height: screenSize.height*0.35)
+            .frame(width: screenSize.width*0.4, height: screenSize.height*0.38)
             Rectangle()
                 .foregroundColor(.white)
                 .frame(width: screenSize.width*0.43, height: screenSize.height*0.022, alignment: .leading)
-                .padding(.top,screenSize.height*0.07)
+                .padding(.top,screenSize.height*0.05)
         }
         .padding(.trailing)
         .padding(.top)

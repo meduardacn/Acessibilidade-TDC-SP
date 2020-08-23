@@ -13,20 +13,26 @@ struct CustomTabBarView: View {
         TabView {
             DiscoverView(viewModel: DiscoverViewModel())
                 .tabItem {
-                    Image(systemName:  "magnifyingglass")
-                    Text("Descobrir")
+                    ZStack{
+                        Image(systemName:  "magnifyingglass")
+                        Text("Descobrir")
+                    }
             }
             Text("Todo second item")
                 .tabItem{
-                    Image(systemName: "heart")
-                    Text("Favoritas")
+                    ZStack{
+                        Image(systemName: "heart")
+                        Text("Favoritas")
+                    }
+                    
                     
             }
             ProfileView()
                 .tabItem{
-                    Image(systemName: "person")
-                    
-                    Text("Perfil")
+                    ZStack{
+                        Image(systemName: "person")
+                        Text("Perfil")
+                    }
             }
         }
         .accentColor(.black)

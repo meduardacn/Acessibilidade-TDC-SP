@@ -22,11 +22,15 @@ struct RecipeDetails: View {
         GeometryReader { geometry in
             ZStack(alignment: .topLeading){
                 VStack{
-                    Image(self.cellViewModel.recipe.imageName)
-                        .resizable()
-                        .renderingMode(.original)
-                        .frame(width: self.screenSize.width, height: self.screenSize.height*0.5)
-                        .padding(.top,self.screenSize.height * -0.05)
+                    ZStack{
+                        Image(self.cellViewModel.recipe.imageName, label: Text(self.cellViewModel.recipe.imageDescription))
+                            .resizable()
+                            .renderingMode(.original)
+                        Rectangle()
+                            .fill(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.3975508052)))
+                    }.frame(width: self.screenSize.width, height: self.screenSize.height*0.5)
+                    .padding(.top,self.screenSize.height * -0.05)
+                    
                     self.modal
                 }
                 
@@ -37,10 +41,12 @@ struct RecipeDetails: View {
                     HStack{
                         Image("arrow")
                             .foregroundColor(.white)
+                            .accessibility(hidden: true)
                             
                         Text("Voltar")
                             .foregroundColor(.white)
                             .bold()
+                        
                     }.padding()
                         .padding(.top,self.screenSize.height * 0.03)
                 }
@@ -65,12 +71,37 @@ struct RecipeDetails: View {
                         .font(.largeTitle)
                         .padding(.top)
                     Spacer()
-                    self.favorite
+                    
+                    Button(action: {
+                        self.viewModel.setFavorite(item: self.cellViewModel.recipe)
+                    }) {
+                        ZStack{
+                            if self.cellViewModel.recipe.isFavorited{
+                                LinearGradient(gradient: Gradient(colors: [DiscoverView.heartGradientStart, DiscoverView.heartGradientEnd]), startPoint: .top, endPoint: .bottom)
+                                    .mask(Image(systemName: "suit.heart.fill")
+                                        .resizable())
+                                        .frame(width: screenSize.height*0.03, height: screenSize.height*0.03)
+                                        .frame(minWidth: 44, minHeight: 44)
+                                        .padding(.top)
+                                        .padding(.trailing)
+                            }else{
+                                Image(systemName: "suit.heart")
+                                    .resizable()
+                                    .frame(width: screenSize.height*0.03, height: screenSize.height*0.03)
+                                    .frame(minWidth: 44, minHeight: 44)
+                                    .padding(.top)
+                                    .padding(.trailing)
+                            }
+                        }
+                    }
+                    .accessibility(label: Text(self.cellViewModel.recipe.isFavorited ? "Desfavoritar receita" : "Favoritar Receita"))
                 }
                 HStack{
                     Image(systemName: "clock")
-                    Text("\(self.cellViewModel.recipe.timeInMinutes) min      ")
+                        .accessibility(hidden: true)
+                    Text("\(self.cellViewModel.recipe.timeInMinutes) min     ")
                     Image(systemName: "person")
+                        .accessibility(hidden: true)
                     Text("\(self.cellViewModel.recipe.serves) pessoas")
                 }
                 Text("INGREDIENTES")
@@ -87,26 +118,6 @@ struct RecipeDetails: View {
         
     }
     
-    var favorite: some View{
-        Button(action: {
-            self.viewModel.setFavorite(item: self.cellViewModel.recipe)
-        }) {
-            if self.cellViewModel.recipe.isFavorited{
-                LinearGradient(gradient: Gradient(colors: [DiscoverView.heartGradientStart, DiscoverView.heartGradientEnd]), startPoint: .top, endPoint: .bottom)
-                    .mask(Image(systemName: "suit.heart.fill")
-                        .resizable())
-                    .frame(width: screenSize.height*0.03, height: screenSize.height*0.03)
-                    .padding(.top)
-                    .padding(.trailing)
-            }else{
-                Image(systemName: "suit.heart")
-                    .resizable()
-                    .frame(width: screenSize.height*0.03, height: screenSize.height*0.03)
-                    .padding(.top)
-                    .padding(.trailing)
-            }
-        }
-    }
 }
 
 struct RecipeDetails_Previews: PreviewProvider {

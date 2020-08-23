@@ -20,10 +20,7 @@ struct ProfileView: View {
     @State var wrongAnswer = false
     @State var remember = false
 
-   
-    
-    
-    
+
     var body: some View {
         GeometryReader { geometry in
             VStack{
@@ -49,7 +46,6 @@ struct ProfileView: View {
             Text("Meu perfil")
                 .font(.largeTitle)
                 .fontWeight(.semibold)
-                
                 .padding(.leading,self.screenSize.width*0.05)
                 .padding(.bottom,self.screenSize.width*0.025)
         })
@@ -58,6 +54,7 @@ struct ProfileView: View {
     var informations: some View {
         VStack(alignment: .center){
             Image("happyFace")
+                .accessibility(hidden: true)
             Text("Olá! Faça login para ter acesso ao seu perfil e as suas receitas favoritas!")
                 .font(.system(size: 20))
                 .multilineTextAlignment(.center)
@@ -78,6 +75,7 @@ struct ProfileView: View {
             self.passwordTextField
             if wrongAnswer{
                 self.passwordSupportHStack
+                self.rememberMe
             }else{
                 self.rememberMe
             }
@@ -95,8 +93,11 @@ struct ProfileView: View {
                 .fill(Color(.white))
                 .cornerRadius(10)
                 .frame(height: self.screenSize.height*0.052)
+                .frame(minWidth: 44, minHeight: 44)
                 .shadow(radius: 5)
             TextField("", text: $email, onCommit: onCommitEmail)
+                .frame(minWidth: 44, minHeight: 44)
+            .accessibility(label: Text("Insira seu email"))
                 .padding(.leading)
         }
     }
@@ -107,30 +108,38 @@ struct ProfileView: View {
                 Rectangle()
                     .fill(Color(.white))
                     .frame(height: self.screenSize.height*0.052)
+                    .frame(minWidth: 44, minHeight: 44)
                     .shadow(radius: 5)
                     .cornerRadius(10)
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.red, lineWidth: 2)
                     .frame(height: self.screenSize.height*0.052)
+                    .frame(minWidth: 44, minHeight: 44)
                 
             }else{
                 Rectangle()
                 .fill(Color(.white))
                 .cornerRadius(10)
                 .frame(height: self.screenSize.height*0.052)
+                .frame(minWidth: 44, minHeight: 44)
                 .shadow(radius: 5)
             }
             
             
             if securePasswordActive {
                 SecureField("", text: $password, onCommit: onCommitPassword)
-                    .padding(.leading)
+                    .accessibility(label: Text("Insira sua senha, ela ficará visível"))
+                    .frame(minWidth: 44, minHeight: 44)
+                    .padding(.leading, wrongAnswer ? 44 : 10)
             } else {
                 TextField("", text: $password, onCommit: onCommitPassword)
-                    .padding(.leading)
+                    .accessibility(label: Text("Insira sua senha, ela ficará escondida"))
+                    .frame(minWidth: 44, minHeight: 44)
+                    .padding(.leading, wrongAnswer ? 44 : 10)
             }
             if wrongAnswer{
                 Image(systemName: "xmark.circle.fill" )
+                .accessibility(hidden: true)
                 .foregroundColor(.red)
                 .padding()
             }
@@ -143,6 +152,11 @@ struct ProfileView: View {
                         .renderingMode(.original)
                         .padding()
                 }
+                .accessibilityElement()
+                .accessibility(addTraits: AccessibilityTraits.isButton)
+                .accessibility(label: Text(securePasswordActive ? "Tornar senha invisível" : "Tornar senha visível"))
+                .accessibility(hint: Text("Muda a visibilidade da senha"))
+                .frame(width: 44, height: 44)
             }
         }
     }
@@ -156,7 +170,8 @@ struct ProfileView: View {
             }) {
                 Text("Esqueceu sua senha?")
                     .underline()
-                    .foregroundColor(.blue)
+                    .frame(minWidth: 44, minHeight: 44)
+                    .foregroundColor(Color(#colorLiteral(red: 0.03324240446, green: 0.4304032922, blue: 0.9995022416, alpha: 1)))
             }
         }.padding(.top,self.screenSize.height*0.01)
     }
@@ -164,9 +179,15 @@ struct ProfileView: View {
     var rememberMe: some View{
         HStack {
             Text("Lembre-me")
+                .accessibility(hidden: true)
+                .frame(minWidth: 44, minHeight: 44)
             Spacer()
             Toggle("", isOn: $remember)
+                .accessibilityElement()
+                .accessibility(label: Text(remember ? "Desativar lembrar usuário" : "Ativar lembrar usuário"))
+                .frame(width: 44,height: 44)
         }.padding(.top,self.screenSize.height*0.01)
+        .frame(minWidth: 44, minHeight: 44)
     }
     
     static let gradientStart = Color(#colorLiteral(red: 1, green: 0.5843137255, blue: 0, alpha: 1))
@@ -203,8 +224,9 @@ struct ProfileView: View {
 
             }) {
                 Text("Criar minha conta")
-                .underline()
-                    .foregroundColor(.blue)
+                    .underline()
+                    .frame(minWidth: 44, minHeight: 44)
+                    .foregroundColor(Color(#colorLiteral(red: 0.03324240446, green: 0.4304032922, blue: 0.9995022416, alpha: 1)))
             }
         }.frame(width: self.screenSize.width*0.9)
             .padding(.top, 0.03*screenSize.height)

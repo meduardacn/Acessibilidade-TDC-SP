@@ -186,16 +186,8 @@
 			children = (
 				60EB3C9F24E78C7F00DC6EA8 /* View */,
 				60EB3C9E24E78C7800DC6EA8 /* ViewModel */,
-				60EB3C9D24E78C6E00DC6EA8 /* Model */,
 			);
 			path = Details;
-			sourceTree = "<group>";
-		};
-		60EB3C9D24E78C6E00DC6EA8 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		60EB3C9E24E78C7800DC6EA8 /* ViewModel */ = {
