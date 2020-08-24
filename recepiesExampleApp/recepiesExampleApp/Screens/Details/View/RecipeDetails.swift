@@ -90,6 +90,7 @@ struct RecipeDetails: View {
                         }
                         .accessibilityElement()
                         .accessibility(label: Text(self.cellViewModel.recipe.isFavorited ? "Desfavoritar receita" : "Favoritar Receita"))
+                        .accessibility(addTraits: .isButton)
                         .frame(width: screenSize.height*0.03, height: screenSize.height*0.03)
                         .frame(minWidth: 44, minHeight: 44)
                         .padding(.top)
@@ -99,12 +100,22 @@ struct RecipeDetails: View {
                 }
                 
                 HStack{
+                    
+                    
                     Image(systemName: "clock")
-                        .accessibility(hidden: true)
+                        .accessibility(label: Text("Tempo de preparo"))
+                    
+                    
+                    
                     Text("\(self.cellViewModel.recipe.timeInMinutes) min     ")
+                        
+                    
                     Image(systemName: "person")
-                        .accessibility(hidden: true)
+                        .accessibility(label: Text("Serve"))
+                    
+                    
                     Text("\(self.cellViewModel.recipe.serves) pessoas")
+                        
                 }
                 Text("INGREDIENTES")
                     .bold()
