@@ -53,8 +53,10 @@ struct ProfileView: View {
     
     var informations: some View {
         VStack(alignment: .center){
-            Image("happyFace")
-                .accessibility(hidden: true)
+            
+            
+            Image(decorative: "happyFace")
+
             Text("Olá! Faça login para ter acesso ao seu perfil e as suas receitas favoritas!")
                 .font(.system(size: 20))
                 .multilineTextAlignment(.center)
@@ -95,10 +97,14 @@ struct ProfileView: View {
                 .frame(height: self.screenSize.height*0.052)
                 .frame(minWidth: 44, minHeight: 44)
                 .shadow(radius: 5)
+            
+            
             TextField("", text: $email, onCommit: onCommitEmail)
+                .accessibility(label: Text("Insira seu email"))
                 .frame(minWidth: 44, minHeight: 44)
-            .accessibility(label: Text("Insira seu email"))
                 .padding(.leading)
+                
+            
         }
     }
     
@@ -115,7 +121,6 @@ struct ProfileView: View {
                     .stroke(Color.red, lineWidth: 2)
                     .frame(height: self.screenSize.height*0.052)
                     .frame(minWidth: 44, minHeight: 44)
-                
             }else{
                 Rectangle()
                 .fill(Color(.white))
@@ -137,6 +142,7 @@ struct ProfileView: View {
                     .frame(minWidth: 44, minHeight: 44)
                     .padding(.leading, wrongAnswer ? 44 : 10)
             }
+            
             if wrongAnswer{
                 Image(systemName: "xmark.circle.fill" )
                 .accessibility(hidden: true)
@@ -145,6 +151,8 @@ struct ProfileView: View {
             }
             HStack {
                 Spacer()
+                
+                
                 Button(action: {
                     self.securePasswordActive.toggle()
                 }) {
@@ -154,9 +162,12 @@ struct ProfileView: View {
                 }
                 .accessibilityElement()
                 .accessibility(addTraits: AccessibilityTraits.isButton)
-                .accessibility(label: Text(securePasswordActive ? "Tornar senha visível" : "Tornar senha invisível" ))
+                .accessibility(label:
+                    Text(securePasswordActive ? "Tornar senha visível" : "Tornar senha invisível" ))
                 .accessibility(hint: Text("Muda a visibilidade da senha"))
                 .frame(width: 44, height: 44)
+                
+                
             }
         }
     }
@@ -182,10 +193,19 @@ struct ProfileView: View {
                 .accessibility(hidden: true)
                 .frame(minWidth: 44, minHeight: 44)
             Spacer()
+            
+            
+            
             Toggle("", isOn: $remember)
                 .accessibilityElement()
-                .accessibility(label: Text(remember ? "Desativar lembrar usuário" : "Ativar lembrar usuário"))
+                .accessibility(addTraits: .isButton)
+                .accessibility(label:
+                    Text(remember ? "Desativar lembrar usuário" : "Ativar lembrar usuário"))
                 .frame(width: 44,height: 44)
+            
+            
+            
+            
         }.padding(.top,self.screenSize.height*0.01)
         .frame(minWidth: 44, minHeight: 44)
     }

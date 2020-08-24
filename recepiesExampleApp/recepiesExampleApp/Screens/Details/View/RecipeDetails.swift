@@ -47,14 +47,17 @@ struct RecipeDetails: View {
                             .foregroundColor(.white)
                             .bold()
                         
-                    }.padding()
-                        .padding(.top,self.screenSize.height * 0.03)
+                    }
+                    .accessibilityElement()
+                    .accessibility(label: Text("Voltar"))
+                    .padding()
+                    .padding(.top,self.screenSize.height * 0.03)
                 }
                 
             }.onAppear {
                 UITableView.appearance().separatorStyle = .none
                 self.screenSize = geometry.size
-            }.navigationBarTitle("Three")
+            }
         }.edgesIgnoringSafeArea(.top)
         
         
@@ -78,24 +81,23 @@ struct RecipeDetails: View {
                         ZStack{
                             if self.cellViewModel.recipe.isFavorited{
                                 LinearGradient(gradient: Gradient(colors: [DiscoverView.heartGradientStart, DiscoverView.heartGradientEnd]), startPoint: .top, endPoint: .bottom)
-                                    .mask(Image(systemName: "suit.heart.fill")
+                                    .mask(Image(decorative: "suit.heart.fill")
                                         .resizable())
-                                        .frame(width: screenSize.height*0.03, height: screenSize.height*0.03)
-                                        .frame(minWidth: 44, minHeight: 44)
-                                        .padding(.top)
-                                        .padding(.trailing)
                             }else{
-                                Image(systemName: "suit.heart")
+                                Image(decorative: "suit.heart")
                                     .resizable()
-                                    .frame(width: screenSize.height*0.03, height: screenSize.height*0.03)
-                                    .frame(minWidth: 44, minHeight: 44)
-                                    .padding(.top)
-                                    .padding(.trailing)
                             }
                         }
+                        .accessibilityElement()
+                        .accessibility(label: Text(self.cellViewModel.recipe.isFavorited ? "Desfavoritar receita" : "Favoritar Receita"))
+                        .frame(width: screenSize.height*0.03, height: screenSize.height*0.03)
+                        .frame(minWidth: 44, minHeight: 44)
+                        .padding(.top)
+                        .padding(.trailing)
                     }
-                    .accessibility(label: Text(self.cellViewModel.recipe.isFavorited ? "Desfavoritar receita" : "Favoritar Receita"))
+                    
                 }
+                
                 HStack{
                     Image(systemName: "clock")
                         .accessibility(hidden: true)
